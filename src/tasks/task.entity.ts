@@ -4,7 +4,7 @@ export enum TaskStatus {
     DONE = 'DONE'
 }
 export class Task {
-    id: number;
+    id: string;
     title: string;
     description: string;
     status: TaskStatus;
