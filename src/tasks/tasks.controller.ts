@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto, UpdateTaskDto } from './dto/task.dto';
-import { Task } from './task.entity';
 import path from 'path';
+import { task } from '@prisma/client';
 
 @Controller('tasks')
 export class TasksController {
@@ -16,7 +16,7 @@ export class TasksController {
     }
 
     @Post()
-    createTask(@Body() newTask: CreateTaskDto) {
+    createTask(@Body() newTask: task) {
         return this.taskService.createTask(newTask.title, newTask.description)
     }
 
